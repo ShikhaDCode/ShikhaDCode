@@ -32,7 +32,25 @@ void InsertionSort(vector<int>& vec)
 
 void SelectionSort(vector<int>& vec)
 {
-    for(int i = 0;i )
+    int key = 0;
+    int i, j;
+    int swIdx = 0;
+
+    for(i = 0;i < vec.size(); i++){
+        key = vec[i];
+        swIdx = 0;
+        for(j = i + 1; j < vec.size(); j++){
+            if(vec[j] < key){
+                key = vec[j];
+                swIdx = j;
+            }
+        }
+
+        if(swIdx != 0){
+            swap(vec[i], vec[swIdx]);
+        }
+
+    }
 }
 
 int main()
@@ -41,7 +59,8 @@ int main()
 
     // BubbleSort(vec);
 
-    InsertionSort(vec);
+    // InsertionSort(vec);
+    SelectionSort(vec);
     for(int x : vec){
         cout << x << " ";
     }
